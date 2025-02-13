@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Renata</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 90%;
+            padding: 20px;
+        }
+        button {
+            background-color: #ff4e50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        button:hover {
+            background-color: #fc913a;
+        }
+        @keyframes floatingHearts {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .heart {
+            position: absolute;
+            bottom: 0;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 100% 30%, 80% 100%, 50% 80%, 20% 100%, 0% 30%);
+            animation: floatingHearts 5s linear infinite;
+        }
+        .sticker {
+            display: none;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 200px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            button {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 ¡Feliz Cumpleaños, Renata! 🎂</h1>
+    <div class="container">
+        <p>Te amo con todo mi corazón y deseo que tengas el mejor día de todos. 💖</p>
+        <p>(Haz clic en el botón para ver tu sorpresa 🎁)</p>
+        <button onclick="showSticker()">Haz clic para tu sorpresa</button>
+        <br>
+        <center>
+        <img id="sticker" class="sticker" src="https://i.pinimg.com/originals/7f/3c/bb/7f3cbb89a91d158168ab89594825e375.gif" alt="Feliz Cumpleaños">
+        <p>Espero que pases un Cumpleaños muy feliz, que sigas cumpliendo tus sueños,metas y mas años.
+        Espero y te guste a lo mejor no es mucho pero me tarde mucho programando.
+        
+        </p>
+    </center>
+    </div>
+    <script>
+        function showSticker() {
+            document.getElementById('sticker').style.display = 'block';
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
